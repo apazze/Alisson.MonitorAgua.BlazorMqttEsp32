@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alisson.MonitorAgua.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220331181832_First")]
+    [Migration("20220404123109_First")]
     partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,7 +76,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 1",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 3, 31, 15, 18, 32, 73, DateTimeKind.Local).AddTicks(3927),
+                            TimeStamp = new DateTime(2022, 4, 4, 9, 31, 9, 450, DateTimeKind.Local).AddTicks(4686),
                             Topic = "topic seed 1"
                         },
                         new
@@ -88,7 +88,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 2",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 3, 31, 15, 18, 32, 73, DateTimeKind.Local).AddTicks(3938),
+                            TimeStamp = new DateTime(2022, 4, 4, 9, 31, 9, 450, DateTimeKind.Local).AddTicks(4697),
                             Topic = "topic seed 2"
                         });
                 });
@@ -133,10 +133,10 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 2,
-                            NameSensor = "Vazão",
-                            Type = "Vazão",
-                            Unit = "L",
-                            Value = "1.05"
+                            NameSensor = "Temperatura",
+                            Type = "DHT11",
+                            Unit = "C",
+                            Value = "27.3"
                         });
                 });
 

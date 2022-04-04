@@ -48,10 +48,10 @@ namespace Alisson.MonitorAgua
                     new Sensor
                     {
                         Id = 2,
-                        NameSensor = "Vazão",
-                        Type = "Vazão",
-                        Unit = "L",
-                        Value = "1.05"
+                        NameSensor = "Temperatura",
+                        Type = "DHT11",
+                        Unit = "C",
+                        Value = "27.3"
                     }
                 };
 
