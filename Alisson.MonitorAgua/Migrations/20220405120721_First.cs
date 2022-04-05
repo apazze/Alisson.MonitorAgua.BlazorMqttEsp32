@@ -64,12 +64,12 @@ namespace Alisson.MonitorAgua.Migrations
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 4, 9, 31, 9, 450, DateTimeKind.Local).AddTicks(4686), "topic seed 1" });
+                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 5, 9, 7, 21, 410, DateTimeKind.Local).AddTicks(2783), "topic seed 1" });
 
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 4, 9, 31, 9, 450, DateTimeKind.Local).AddTicks(4697), "topic seed 2" });
+                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 5, 9, 7, 21, 410, DateTimeKind.Local).AddTicks(2793), "topic seed 2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Datas_SensorId",

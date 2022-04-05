@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alisson.MonitorAgua.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220404123109_First")]
+    [Migration("20220405120721_First")]
     partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,7 +76,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 1",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 4, 9, 31, 9, 450, DateTimeKind.Local).AddTicks(4686),
+                            TimeStamp = new DateTime(2022, 4, 5, 9, 7, 21, 410, DateTimeKind.Local).AddTicks(2783),
                             Topic = "topic seed 1"
                         },
                         new
@@ -88,7 +88,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 2",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 4, 9, 31, 9, 450, DateTimeKind.Local).AddTicks(4697),
+                            TimeStamp = new DateTime(2022, 4, 5, 9, 7, 21, 410, DateTimeKind.Local).AddTicks(2793),
                             Topic = "topic seed 2"
                         });
                 });

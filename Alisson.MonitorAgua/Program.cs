@@ -12,7 +12,7 @@ namespace Alisson.MonitorAgua
     internal class Program
     {
         private static int MessageCounter = 0;
-        static int portServiceMQTT = 5010;
+        static int portServiceMQTT = 5011;
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
