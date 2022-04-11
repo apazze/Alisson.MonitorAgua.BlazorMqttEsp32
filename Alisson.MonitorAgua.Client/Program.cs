@@ -47,7 +47,7 @@ namespace MQTTFirstLook.Client
 
 
 
-            bool acionarSirene = false;
+            bool acionarSirene = true;
 
             while (true)
             {

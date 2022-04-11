@@ -65,25 +65,30 @@ namespace Alisson.MonitorAgua
                 context.ApplicationMessage?.QualityOfServiceLevel,
                 context.ApplicationMessage?.Retain);
 
-            Sensor convertJson2Class = JsonConvert.DeserializeObject<Sensor>(payload);
-            Console.WriteLine("");
-
-            contexto.Sensors.Add(convertJson2Class);
-            contexto.SaveChanges();
-
-            Data data = new Data()
+            if(context.ApplicationMessage?.Topic == "monitorAgua/vazao")
             {
-                MessageId = MessageCounter,
-                TimeStamp = DateTime.Now,
-                ClientId = context.ClientId,
-                Topic = context.ApplicationMessage?.Topic,
-                QoS = context.ApplicationMessage?.QualityOfServiceLevel.ToString(),
-                Payload = payload,
-                RetainFlag = (bool)context.ApplicationMessage?.Retain,
-                Sensor = convertJson2Class
-            };
-            contexto.Datas.Add(data);
-            contexto.SaveChanges();
+                Sensor convertJson2Class = JsonConvert.DeserializeObject<Sensor>(payload);
+                Console.WriteLine("");
+
+                contexto.Sensors.Add(convertJson2Class);
+                contexto.SaveChanges();
+
+                Data data = new Data()
+                {
+                    MessageId = MessageCounter,
+                    TimeStamp = DateTime.Now,
+                    ClientId = context.ClientId,
+                    Topic = context.ApplicationMessage?.Topic,
+                    QoS = context.ApplicationMessage?.QualityOfServiceLevel.ToString(),
+                    Payload = payload,
+                    RetainFlag = (bool)context.ApplicationMessage?.Retain,
+                    Sensor = convertJson2Class
+                };
+                contexto.Datas.Add(data);
+                contexto.SaveChanges();
+            }
+
+
         }
     }
 }
