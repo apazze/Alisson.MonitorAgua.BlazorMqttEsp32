@@ -1,0 +1,42 @@
+﻿@using Alisson.MonitorAgua
+@using Microsoft.AspNetCore.Mvc
+@inject NavigationManager Nav
+
+<EditForm Model="@vazao" OnSubmit="@RegistrarQuantidade">
+	<p>
+		<label>
+			Consumo diário permitido (litros):
+			<InputText @bind-Value="vazao.Valor" />
+		</label>
+	</p>
+	<div class="text-right">
+
+		<button type="submit">Submit</button>
+		@*<button type="submit" class="btn btn-primary" @onclick="() => RegistrarQuantidade()">Registrar</button>*@
+	</div>
+</EditForm>
+
+@code
+{
+	private Vazao vazao = new() { TimeStamp = DateTime.Now };
+	private EditContext? editContext;
+
+	protected override void OnInitialized()
+	{
+		editContext = new(vazao);
+	}
+
+	private void RegistrarQuantidade()
+	{
+		if (editContext != null && editContext.Validate())
+		{
+			var contexto = new AppDBContext();
+			contexto.Add(vazao);
+			contexto.SaveChanges();
+			
+			Nav.NavigateTo("/");
+		}
+
+	}
+
+}
