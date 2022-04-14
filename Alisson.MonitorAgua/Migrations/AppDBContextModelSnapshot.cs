@@ -6,8 +6,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-#nullable disable
-
 namespace Alisson.MonitorAgua.Migrations
 {
     [DbContext(typeof(AppDBContext))]
@@ -17,18 +15,16 @@ namespace Alisson.MonitorAgua.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.16")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Alisson.MonitorAgua.Data", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClientId")
                         .IsRequired()
@@ -74,7 +70,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 1",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 13, 19, 55, 39, 96, DateTimeKind.Local).AddTicks(8482),
+                            TimeStamp = new DateTime(2022, 4, 14, 10, 35, 31, 289, DateTimeKind.Local).AddTicks(3785),
                             Topic = "topic seed 1"
                         },
                         new
@@ -86,8 +82,40 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 2",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 13, 19, 55, 39, 96, DateTimeKind.Local).AddTicks(8493),
+                            TimeStamp = new DateTime(2022, 4, 14, 10, 35, 31, 290, DateTimeKind.Local).AddTicks(7466),
                             Topic = "topic seed 2"
+                        });
+                });
+
+            modelBuilder.Entity("Alisson.MonitorAgua.Regra", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Valor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Regras");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            TimeStamp = new DateTime(2022, 4, 14, 10, 35, 31, 291, DateTimeKind.Local).AddTicks(529),
+                            Valor = "150"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            TimeStamp = new DateTime(2022, 4, 14, 10, 35, 31, 291, DateTimeKind.Local).AddTicks(877),
+                            Valor = "170"
                         });
                 });
 
@@ -95,9 +123,8 @@ namespace Alisson.MonitorAgua.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("NameSensor")
                         .IsRequired()
@@ -135,40 +162,6 @@ namespace Alisson.MonitorAgua.Migrations
                             Type = "DHT11",
                             Unit = "C",
                             Value = "27.3"
-                        });
-                });
-
-            modelBuilder.Entity("Alisson.MonitorAgua.Vazao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Valor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Vazoes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            TimeStamp = new DateTime(2022, 4, 13, 19, 55, 39, 96, DateTimeKind.Local).AddTicks(8512),
-                            Valor = "150"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            TimeStamp = new DateTime(2022, 4, 13, 19, 55, 39, 96, DateTimeKind.Local).AddTicks(8513),
-                            Valor = "170"
                         });
                 });
 

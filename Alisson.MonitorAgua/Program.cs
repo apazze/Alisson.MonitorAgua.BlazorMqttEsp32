@@ -4,6 +4,7 @@ using MQTTnet;
 using MQTTnet.Server;
 using Newtonsoft.Json;
 using Serilog;
+using System;
 using System.Text;
 
 
@@ -15,7 +16,8 @@ namespace Alisson.MonitorAgua
         static int portServiceMQTT = 5011;
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\t\t\t\t\t##### MQTT BROKER RUNNING #####\n");
 
 
             Log.Logger = new LoggerConfiguration()

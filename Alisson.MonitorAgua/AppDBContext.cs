@@ -25,7 +25,7 @@ namespace Alisson.MonitorAgua
             // Seedando as tabelas
             SeedEntity(SensorSeed());
             SeedEntity(DataSeed());
-            SeedEntity(VazaoSeed());
+            SeedEntity(RegraSeed());
 
             // Métodos auxiliares via template + internal methods
             void SeedEntity<T>(T[] seedData) where T : class
@@ -86,24 +86,24 @@ namespace Alisson.MonitorAgua
                 return datasSeed;
             }
             
-            Vazao[] VazaoSeed()
+            Regra[] RegraSeed()
             {
-                Vazao[] vazoesSeed = new Vazao[]
+                Regra[] regrasSeed = new Regra[]
                 {
-                    new Vazao
+                    new Regra
                     {
                         Id = 1,
                         Valor = "150",
                         TimeStamp = System.DateTime.Now
                     },
-                    new Vazao
+                    new Regra
                     {
                         Id = 2,
                         Valor = "170",
                         TimeStamp = System.DateTime.Now
                     },
                 };
-                return vazoesSeed;
+                return regrasSeed;
             }
         }
 
@@ -113,7 +113,7 @@ namespace Alisson.MonitorAgua
 
         public DbSet<Sensor> Sensors { get; set; }
         public DbSet<Data> Datas { get; set; }
-        public DbSet<Vazao> Vazoes { get; set; }
+        public DbSet<Regra> Regras { get; set; }
 
 
         #endregion

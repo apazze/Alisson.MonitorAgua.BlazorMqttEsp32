@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Alisson.MonitorAgua;
 using MQTTnet;
 using MQTTnet.Client.Connecting;
 using MQTTnet.Client.Disconnecting;
@@ -13,6 +15,10 @@ namespace MQTTFirstLook.Client
 {
     class Program
     {
+        private static int intervalo = 10000;
+        private static int? portaBroker = 5011;
+        private static string clientName = "Alisson.MonitorAgua.Client";
+
         static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
@@ -22,8 +28,8 @@ namespace MQTTFirstLook.Client
                 .CreateLogger();
 
             MqttClientOptionsBuilder builder = new MqttClientOptionsBuilder()
-                                        .WithClientId("Dev.To")
-                                        .WithTcpServer("localhost", 5011);
+                                        .WithClientId(clientName)
+                                        .WithTcpServer("localhost", portaBroker);
 
             ManagedMqttClientOptions options = new ManagedMqttClientOptionsBuilder()
                                     .WithAutoReconnectDelay(TimeSpan.FromSeconds(60))
@@ -36,26 +42,64 @@ namespace MQTTFirstLook.Client
             _mqttClient.DisconnectedHandler = new MqttClientDisconnectedHandlerDelegate(OnDisconnected);
             _mqttClient.ConnectingFailedHandler = new ConnectingFailedHandlerDelegate(OnConnectingFailed);
 
-            _mqttClient.ApplicationMessageReceivedHandler = new MqttApplicationMessageReceivedHandlerDelegate(a => {
+            _mqttClient.ApplicationMessageReceivedHandler = new MqttApplicationMessageReceivedHandlerDelegate(a =>
+            {
                 Log.Logger.Information("Message recieved: {payload}", a.ApplicationMessage);
             });
 
             _mqttClient.StartAsync(options).GetAwaiter().GetResult();
-
-
-            //ler do BD valor sensor vazao
-
-
-
-            bool acionarSirene = true;
+            
+            bool avisei = false;
+            int dataAviso = -1;
 
             while (true)
             {
-                string json = JsonConvert.SerializeObject(new { acionarSirene = acionarSirene, dataEnvio = DateTimeOffset.UtcNow });
-                _mqttClient.PublishAsync("monitorAgua/advertencia", json);
 
-                Task.Delay(10000).GetAwaiter().GetResult();
+                var contexto = new AppDBContext();
+
+                
+                var valorConfigurado = contexto.Regras
+                    .OrderBy(v => v.Id)
+                    .Select(v => v.Valor).LastOrDefault();
+
+                var dataConfiguracao = contexto.Regras
+                    .OrderBy(v => v.Id)
+                    .Select(v => v.TimeStamp).LastOrDefault();
+
+                var valorConfiguradoDecimal = Decimal.Parse(valorConfigurado);
+                
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"O valor configurado para a advertência é: [ {valorConfiguradoDecimal} ]");
+
+
+                var valorMaximoDoDia = (from d in contexto.Datas
+                                           join s in contexto.Sensors
+                                           on d.SensorId equals s.Id
+                                           where d.TimeStamp.DayOfYear == DateTime.Now.DayOfYear
+                                           select s.Value).Max();
+                
+                var valorMaximoDoDiaDecimal = Decimal.Parse(valorMaximoDoDia);
+                
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine($"O valor máximo recebido no dia é: [ {valorMaximoDoDiaDecimal} ]");
+
+                if (valorMaximoDoDiaDecimal > valorConfiguradoDecimal && !avisei)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\n\n\t\t\t\t\t### Enviando Advertência ###\n\n");
+                    
+                    if(DateTime.Now.DayOfYear > dataAviso)
+                    {
+                        dataAviso = DateTime.Now.DayOfYear;
+                        avisei = true;
+                    }
+                    string json = JsonConvert.SerializeObject(new { acionarSirene = true, dataEnvio = DateTime.Now });
+
+                    _mqttClient.PublishAsync("monitorAgua/advertencia", json);
+                }
+                Task.Delay(intervalo).GetAwaiter().GetResult();
             }
+
         }
 
         public static void OnConnected(MqttClientConnectedEventArgs obj)
