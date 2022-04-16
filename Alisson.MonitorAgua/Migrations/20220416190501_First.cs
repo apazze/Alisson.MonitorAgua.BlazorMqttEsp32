@@ -1,14 +1,26 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-#nullable disable
-
 namespace Alisson.MonitorAgua.Migrations
 {
     public partial class First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Regras",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Valor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Regras", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Sensors",
                 columns: table => new
@@ -23,20 +35,6 @@ namespace Alisson.MonitorAgua.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sensors", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Vazoes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Valor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Vazoes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,6 +64,15 @@ namespace Alisson.MonitorAgua.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Regras",
+                columns: new[] { "Id", "TimeStamp", "Valor" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2022, 4, 16, 16, 5, 1, 213, DateTimeKind.Local).AddTicks(2142), "150" },
+                    { 2, new DateTime(2022, 4, 16, 16, 5, 1, 213, DateTimeKind.Local).AddTicks(2461), "170" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Sensors",
                 columns: new[] { "Id", "NameSensor", "Type", "Unit", "Value" },
                 values: new object[,]
@@ -75,23 +82,14 @@ namespace Alisson.MonitorAgua.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Vazoes",
-                columns: new[] { "Id", "TimeStamp", "Valor" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2022, 4, 13, 19, 55, 39, 96, DateTimeKind.Local).AddTicks(8512), "150" },
-                    { 2, new DateTime(2022, 4, 13, 19, 55, 39, 96, DateTimeKind.Local).AddTicks(8513), "170" }
-                });
+                table: "Datas",
+                columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
+                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 16, 16, 5, 1, 210, DateTimeKind.Local).AddTicks(3016), "topic seed 1" });
 
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 13, 19, 55, 39, 96, DateTimeKind.Local).AddTicks(8482), "topic seed 1" });
-
-            migrationBuilder.InsertData(
-                table: "Datas",
-                columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 13, 19, 55, 39, 96, DateTimeKind.Local).AddTicks(8493), "topic seed 2" });
+                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 16, 16, 5, 1, 212, DateTimeKind.Local).AddTicks(9073), "topic seed 2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Datas_SensorId",
@@ -105,7 +103,7 @@ namespace Alisson.MonitorAgua.Migrations
                 name: "Datas");
 
             migrationBuilder.DropTable(
-                name: "Vazoes");
+                name: "Regras");
 
             migrationBuilder.DropTable(
                 name: "Sensors");

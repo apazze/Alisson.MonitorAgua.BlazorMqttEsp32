@@ -1,4 +1,6 @@
-﻿namespace Alisson.MonitorAgua
+﻿using System;
+
+namespace Alisson.MonitorAgua
 {
 	public class Vazao
     {

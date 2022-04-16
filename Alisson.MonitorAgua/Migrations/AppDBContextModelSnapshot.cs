@@ -70,7 +70,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 1",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 14, 10, 35, 31, 289, DateTimeKind.Local).AddTicks(3785),
+                            TimeStamp = new DateTime(2022, 4, 16, 16, 5, 1, 210, DateTimeKind.Local).AddTicks(3016),
                             Topic = "topic seed 1"
                         },
                         new
@@ -82,7 +82,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 2",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 14, 10, 35, 31, 290, DateTimeKind.Local).AddTicks(7466),
+                            TimeStamp = new DateTime(2022, 4, 16, 16, 5, 1, 212, DateTimeKind.Local).AddTicks(9073),
                             Topic = "topic seed 2"
                         });
                 });
@@ -108,13 +108,13 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 1,
-                            TimeStamp = new DateTime(2022, 4, 14, 10, 35, 31, 291, DateTimeKind.Local).AddTicks(529),
+                            TimeStamp = new DateTime(2022, 4, 16, 16, 5, 1, 213, DateTimeKind.Local).AddTicks(2142),
                             Valor = "150"
                         },
                         new
                         {
                             Id = 2,
-                            TimeStamp = new DateTime(2022, 4, 14, 10, 35, 31, 291, DateTimeKind.Local).AddTicks(877),
+                            TimeStamp = new DateTime(2022, 4, 16, 16, 5, 1, 213, DateTimeKind.Local).AddTicks(2461),
                             Valor = "170"
                         });
                 });
