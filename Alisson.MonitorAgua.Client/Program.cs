@@ -48,9 +48,10 @@ namespace MQTTFirstLook.Client
             });
 
             _mqttClient.StartAsync(options).GetAwaiter().GetResult();
-            
+
             bool avisei = false;
             int dataAviso = -1;
+            decimal valorAntigo = -1;
 
             while (true)
             {
@@ -66,8 +67,8 @@ namespace MQTTFirstLook.Client
                     .OrderBy(v => v.Id)
                     .Select(v => v.TimeStamp).LastOrDefault();
 
-                var valorConfiguradoDecimal = Decimal.Parse(valorConfigurado);
-                
+                decimal valorConfiguradoDecimal = Decimal.Parse(valorConfigurado);
+
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"O valor configurado para a advertência é: [ {valorConfiguradoDecimal} ]");
 
@@ -78,17 +79,20 @@ namespace MQTTFirstLook.Client
                                            where d.TimeStamp.DayOfYear == DateTime.Now.DayOfYear
                                            select s.Value).Max();
                 
-                var valorMaximoDoDiaDecimal = Decimal.Parse(valorMaximoDoDia);
+                decimal valorMaximoDoDiaDecimal = Decimal.Parse(valorMaximoDoDia);
+                
                 
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine($"O valor máximo recebido no dia é: [ {valorMaximoDoDiaDecimal} ]");
 
-                if (valorMaximoDoDiaDecimal > valorConfiguradoDecimal && !avisei)
+                if (valorMaximoDoDiaDecimal > valorConfiguradoDecimal && (!avisei || valorAntigo != valorConfiguradoDecimal))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n\n\t\t\t\t\t### Enviando Advertência ###\n\n");
+                    valorAntigo = valorConfiguradoDecimal;
                     
-                    if(DateTime.Now.DayOfYear > dataAviso)
+
+                    if (DateTime.Now.DayOfYear > dataAviso || valorAntigo != valorConfiguradoDecimal)
                     {
                         dataAviso = DateTime.Now.DayOfYear;
                         avisei = true;
