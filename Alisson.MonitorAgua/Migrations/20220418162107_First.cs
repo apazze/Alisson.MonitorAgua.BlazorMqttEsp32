@@ -68,8 +68,8 @@ namespace Alisson.MonitorAgua.Migrations
                 columns: new[] { "Id", "TimeStamp", "Valor" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 4, 16, 16, 5, 1, 213, DateTimeKind.Local).AddTicks(2142), "150" },
-                    { 2, new DateTime(2022, 4, 16, 16, 5, 1, 213, DateTimeKind.Local).AddTicks(2461), "170" }
+                    { 1, new DateTime(2022, 4, 18, 13, 21, 7, 61, DateTimeKind.Local).AddTicks(878), "150" },
+                    { 2, new DateTime(2022, 4, 18, 13, 21, 7, 61, DateTimeKind.Local).AddTicks(1228), "170" }
                 });
 
             migrationBuilder.InsertData(
@@ -77,19 +77,19 @@ namespace Alisson.MonitorAgua.Migrations
                 columns: new[] { "Id", "NameSensor", "Type", "Unit", "Value" },
                 values: new object[,]
                 {
-                    { 1, "Temperatura", "DHT11", "C", "23.05" },
-                    { 2, "Temperatura", "DHT11", "C", "27.3" }
+                    { 1, "Vazao", "Encoder", "L", "6.05" },
+                    { 2, "Vazao", "Encoder", "L", "7.3" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 16, 16, 5, 1, 210, DateTimeKind.Local).AddTicks(3016), "topic seed 1" });
+                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 18, 13, 21, 7, 59, DateTimeKind.Local).AddTicks(3463), "topic seed 1" });
 
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 16, 16, 5, 1, 212, DateTimeKind.Local).AddTicks(9073), "topic seed 2" });
+                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 18, 13, 21, 7, 60, DateTimeKind.Local).AddTicks(8007), "topic seed 2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Datas_SensorId",

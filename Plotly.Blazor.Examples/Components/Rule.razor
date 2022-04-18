@@ -9,16 +9,23 @@
 			<InputText @bind-Value="vazao.Valor" />
 		</label>
 	</p>
+	<div class="text-left">
+		<p>Último valor registrado: <h1>@valorUltimoRegistro</h1></p>
+		<p>em @dataDoUltimoRegistro</p>
+	</div>
 	<div class="text-right">
 
 		<button type="submit" class="btn btn-primary">Registrar</button>
 		@*<button type="submit" class="btn btn-primary" @onclick="() => RegistrarQuantidade()">Registrar</button>*@
 	</div>
+	
 </EditForm>
 
 @code
 {
 	private Regra vazao = new() { TimeStamp = DateTime.Now };
+	private string valorUltimoRegistro = ValorDoUltimoRegistro();
+	private string dataDoUltimoRegistro = DataDoUltimoRegistro();
 	private EditContext? editContext;
 
 	protected override void OnInitialized()
@@ -33,10 +40,27 @@
 			var contexto = new AppDBContext();
 			contexto.Add(vazao);
 			contexto.SaveChanges();
-			
+
 			Nav.NavigateTo("/");
 		}
-
+	}
+	private static string ValorDoUltimoRegistro()
+	{
+		var context = new AppDBContext();
+		var valorConfigurado = context.Regras
+					.OrderBy(v => v.Id)
+					.Select(v => v.Valor).LastOrDefault();
+		return valorConfigurado;
 	}
 
+	private static string DataDoUltimoRegistro()
+	{
+		var context = new AppDBContext();
+		var dataConfiguracao = context.Regras
+					.OrderBy(v => v.Id)
+					.Select(v => v.TimeStamp).LastOrDefault();
+		var dataFormatada = TimeZoneInfo.ConvertTime(dataConfiguracao, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
+
+		return dataFormatada.ToString("dd/MM/yyyy HH:mm:ss");
+	}
 }

@@ -16,7 +16,7 @@ namespace Alisson.MonitorAgua
         {
             if (!optionsBuilder.IsConfigured)
                 //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MonitoramentoAgua");
-                optionsBuilder.UseSqlServer(@"Server=monitoragua.database.windows.net;Database=MonitorAgua;User ID=alisson.pazze;Password=Qwerty@2020;Trusted_Connection=False;Encrypt=True");
+                optionsBuilder.UseSqlServer(@"Server=monitoragua.database.windows.net;Database=monitoragua;User ID=alisson.pazze;Password=Qwerty@2022;Trusted_Connection=False;Encrypt=True");
             ;
         }
 
@@ -38,18 +38,18 @@ namespace Alisson.MonitorAgua
                     new Sensor
                     {
                         Id = 1,
-                        NameSensor = "Temperatura",
-                        Type = "DHT11",
-                        Unit = "C",
-                        Value = "23.05"
+                        NameSensor = "Vazao",
+                        Type = "Encoder",
+                        Unit = "L",
+                        Value = "6.05"
                     },
                     new Sensor
                     {
                         Id = 2,
-                        NameSensor = "Temperatura",
-                        Type = "DHT11",
-                        Unit = "C",
-                        Value = "27.3"
+                        NameSensor = "Vazao",
+                        Type = "Encoder",
+                        Unit = "L",
+                        Value = "7.3"
                     }
                 };
 

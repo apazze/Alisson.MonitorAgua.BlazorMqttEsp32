@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alisson.MonitorAgua.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220416190501_First")]
+    [Migration("20220418162107_First")]
     partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,7 +72,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 1",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 16, 16, 5, 1, 210, DateTimeKind.Local).AddTicks(3016),
+                            TimeStamp = new DateTime(2022, 4, 18, 13, 21, 7, 59, DateTimeKind.Local).AddTicks(3463),
                             Topic = "topic seed 1"
                         },
                         new
@@ -84,7 +84,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 2",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 16, 16, 5, 1, 212, DateTimeKind.Local).AddTicks(9073),
+                            TimeStamp = new DateTime(2022, 4, 18, 13, 21, 7, 60, DateTimeKind.Local).AddTicks(8007),
                             Topic = "topic seed 2"
                         });
                 });
@@ -110,13 +110,13 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 1,
-                            TimeStamp = new DateTime(2022, 4, 16, 16, 5, 1, 213, DateTimeKind.Local).AddTicks(2142),
+                            TimeStamp = new DateTime(2022, 4, 18, 13, 21, 7, 61, DateTimeKind.Local).AddTicks(878),
                             Valor = "150"
                         },
                         new
                         {
                             Id = 2,
-                            TimeStamp = new DateTime(2022, 4, 16, 16, 5, 1, 213, DateTimeKind.Local).AddTicks(2461),
+                            TimeStamp = new DateTime(2022, 4, 18, 13, 21, 7, 61, DateTimeKind.Local).AddTicks(1228),
                             Valor = "170"
                         });
                 });
@@ -152,18 +152,18 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 1,
-                            NameSensor = "Temperatura",
-                            Type = "DHT11",
-                            Unit = "C",
-                            Value = "23.05"
+                            NameSensor = "Vazao",
+                            Type = "Encoder",
+                            Unit = "L",
+                            Value = "6.05"
                         },
                         new
                         {
                             Id = 2,
-                            NameSensor = "Temperatura",
-                            Type = "DHT11",
-                            Unit = "C",
-                            Value = "27.3"
+                            NameSensor = "Vazao",
+                            Type = "Encoder",
+                            Unit = "L",
+                            Value = "7.3"
                         });
                 });
 
