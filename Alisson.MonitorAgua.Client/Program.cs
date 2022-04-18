@@ -78,9 +78,8 @@ namespace MQTTFirstLook.Client
                                            on d.SensorId equals s.Id
                                            where d.TimeStamp.DayOfYear == DateTime.Now.DayOfYear
                                            select s.Value).Max();
-                
-                decimal valorMaximoDoDiaDecimal = Decimal.Parse(valorMaximoDoDia);
-                
+
+                decimal valorMaximoDoDiaDecimal = Convert.ToDecimal(valorMaximoDoDia, System.Globalization.CultureInfo.InvariantCulture);
                 
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine($"O valor máximo recebido no dia é: [ {valorMaximoDoDiaDecimal} ]");

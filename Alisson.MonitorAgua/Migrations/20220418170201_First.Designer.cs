@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alisson.MonitorAgua.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220418162107_First")]
+    [Migration("20220418170201_First")]
     partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,7 +72,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 1",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 18, 13, 21, 7, 59, DateTimeKind.Local).AddTicks(3463),
+                            TimeStamp = new DateTime(2022, 4, 18, 14, 2, 0, 680, DateTimeKind.Local).AddTicks(877),
                             Topic = "topic seed 1"
                         },
                         new
@@ -84,7 +84,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 2",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 18, 13, 21, 7, 60, DateTimeKind.Local).AddTicks(8007),
+                            TimeStamp = new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(3904),
                             Topic = "topic seed 2"
                         });
                 });
@@ -110,13 +110,13 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 1,
-                            TimeStamp = new DateTime(2022, 4, 18, 13, 21, 7, 61, DateTimeKind.Local).AddTicks(878),
+                            TimeStamp = new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(8739),
                             Valor = "150"
                         },
                         new
                         {
                             Id = 2,
-                            TimeStamp = new DateTime(2022, 4, 18, 13, 21, 7, 61, DateTimeKind.Local).AddTicks(1228),
+                            TimeStamp = new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(9347),
                             Valor = "170"
                         });
                 });

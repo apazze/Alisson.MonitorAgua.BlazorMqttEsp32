@@ -68,8 +68,8 @@ namespace Alisson.MonitorAgua.Migrations
                 columns: new[] { "Id", "TimeStamp", "Valor" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 4, 18, 13, 21, 7, 61, DateTimeKind.Local).AddTicks(878), "150" },
-                    { 2, new DateTime(2022, 4, 18, 13, 21, 7, 61, DateTimeKind.Local).AddTicks(1228), "170" }
+                    { 1, new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(8739), "150" },
+                    { 2, new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(9347), "170" }
                 });
 
             migrationBuilder.InsertData(
@@ -84,12 +84,12 @@ namespace Alisson.MonitorAgua.Migrations
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 18, 13, 21, 7, 59, DateTimeKind.Local).AddTicks(3463), "topic seed 1" });
+                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 18, 14, 2, 0, 680, DateTimeKind.Local).AddTicks(877), "topic seed 1" });
 
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 18, 13, 21, 7, 60, DateTimeKind.Local).AddTicks(8007), "topic seed 2" });
+                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(3904), "topic seed 2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Datas_SensorId",
