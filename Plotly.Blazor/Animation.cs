@@ -6,7 +6,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.Json.Serialization;
+using System.Text.Json.Serialization; 
 
 namespace Plotly.Blazor
 {
