@@ -95,8 +95,9 @@
 
         foreach(var item in listDays)
         {
-            var dataFormatada = TimeZoneInfo.ConvertTime(item, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
-            list.Add(dataFormatada.ToString("dd/MM/yyyy HH:mm:ss"));
+            //var dataFormatada = TimeZoneInfo.ConvertTime(item, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
+            //list.Add(dataFormatada.ToString("dd/MM/yyyy HH:mm:ss"));
+            list.Add(item.ToString("dd/MM/yyyy HH:mm:ss"));
         }
 
         var listValues = contexto.Sensors
