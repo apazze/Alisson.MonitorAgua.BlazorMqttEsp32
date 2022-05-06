@@ -9,7 +9,25 @@
             Código do firmware <a href="https://github.com/apazze/ProjetoTCC/tree/main/MonitorAgua"> aqui</a> 
                 e das aplicações Console e Web <a href="https://github.com/apazze/Alisson.MonitorAgua.BlazorMqttEsp32"> aqui</a>
         </p>
-        <img src="/images/esp32.jpeg" alt="Esp32 com sensor de vazao" width="400" height="350" >
+        <img src="/images/esp32.jpeg" alt="Esp32 com sensor de vazao" width="400" height="400" >
+        <br /><br />
+        <dt>Componentes de hardware:</dt><br/>
+        <li>Esp32</li>
+        <li>Sensor de vazão</li>
+        <li>Módulo Ds3231 RTC</li>
+        <li>Módulo Relé</li>
+        <br/>
+        <dt>Regra do negócio:</dt><br/>
+        <li>Placa envia todo dia às 23:59:59 o valor em litros do consumo de água da residência</li>
+        <li>Será acompanhado o perfil de consumo durante X meses</li>
+        <li>Após obter a média diária, será cadastrado este valor na página da <a href="https://monitoragua.azurewebsites.net/rule">Regra</a></li>
+        <li>Se ultrapassar o limite diário aciona uma sirene</li>
+        <li>Será acompanhado para verificar se houve conscientização e redução do consumo</li>
+        <br />
+        <img src="/images/prototipo.jpeg" alt="Prototipo com sirene" width="400" height="400" >
+
+        <br />
+        <br />
         
     </div>
 </Example>
