@@ -28,3 +28,10 @@ Rodar 4°
 Plotly.Examples
 
 Site que gera o relatório dos valores enviados pela ESP32 na index. Na guia Regra configura o valor de limite e grava no banco
+
+
+Integração à IDE:
+https://USUARIO:TOKEN@URL.git
+
+Exemplo:
+https://apazze:TOKEN@github.com/apazze/JavaWiki.git
