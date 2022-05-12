@@ -41,7 +41,7 @@ namespace Alisson.MonitorAgua
                         NameSensor = "Vazao",
                         Type = "Encoder",
                         Unit = "L",
-                        Value = "6.05"
+                        Value = 6.05
                     },
                     new Sensor
                     {
@@ -49,8 +49,16 @@ namespace Alisson.MonitorAgua
                         NameSensor = "Vazao",
                         Type = "Encoder",
                         Unit = "L",
-                        Value = "7.3"
-                    }
+                        Value = 7.3
+                    },
+                    new Sensor
+                    {
+                        Id = 3,
+                        NameSensor = "Vazao",
+                        Type = "Encoder",
+                        Unit = "L",
+                        Value = 12.8
+                    },
                 };
 
                 return sensorsSeed;
@@ -63,25 +71,39 @@ namespace Alisson.MonitorAgua
                     new Data
                     {
                         Id = 1,
+                        SensorId = 1,
                         MessageId = 1,
                         Payload = "payload seed 1",
                         QoS = "qos seed 1",
                         RetainFlag = true,
                         Topic = "topic seed 1",
                         ClientId = "clientId seed 1",
-                        TimeStamp = System.DateTime.Now
+                        TimeStamp = new System.DateTime(2022, 1, 1, 23, 59, 59)
                     },
                     new Data
                     {
                         Id = 2,
+                        SensorId = 2,
                         MessageId = 2,
                         Payload = "payload seed 2",
                         QoS = "qos seed 2",
                         RetainFlag = true,
                         Topic = "topic seed 2",
                         ClientId = "clientId seed 2",
-                        TimeStamp = System.DateTime.Now
-                    }
+                        TimeStamp = new System.DateTime(2022, 1, 2, 23, 59, 59)
+                    },
+                    new Data
+                    {
+                        Id = 3,
+                        SensorId = 3,
+                        MessageId = 3,
+                        Payload = "payload seed 3",
+                        QoS = "qos seed 3",
+                        RetainFlag = true,
+                        Topic = "topic seed 3",
+                        ClientId = "clientId seed 3",
+                        TimeStamp = new System.DateTime(2022, 1, 3, 23, 59, 59)
+                    },
                 };
                 return datasSeed;
             }

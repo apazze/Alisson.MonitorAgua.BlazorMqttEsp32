@@ -23,7 +23,7 @@
     {
         Title = new Title
         {
-            Text = "Consumo de Água"
+            Text = "Consumo de Água (Média diária por mês)"
         },
         YAxis = new List<YAxis>
         {
@@ -89,25 +89,47 @@
         var listDays = (from d in contexto.Datas
                         join s in contexto.Sensors
                         on d.SensorId equals s.Id
+                        where s.NameSensor == "vazao"
                         select d.TimeStamp).ToList();
 
-        List<string> list = new List<string>();
+        var listByMonths = listDays.GroupBy(m => m.Date.ToString("MM/yyyy"))
+                                    .Select(d => new { Key = d.Key, Itens = d.ToList() });
 
-        foreach(var item in listDays)
+        List<string> listaMesesDoAno = new List<string>();
+        List<int> listaContadoresRegistrosPorMes = new List<int>();
+
+        foreach(var item in listByMonths)
         {
             //var dataFormatada = TimeZoneInfo.ConvertTime(item, TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"));
             //list.Add(dataFormatada.ToString("dd/MM/yyyy HH:mm:ss"));
-            list.Add(item.ToString("dd/MM/yyyy HH:mm:ss"));
+            listaMesesDoAno.Add(item.Key);
+            listaContadoresRegistrosPorMes.Add(item.Itens.Count);
+
         }
 
-        var listValues = contexto.Sensors
-            .Where(s => s.NameSensor == "Vazao")
-            .Select(s => s.Value)
-            .ToList();
+        var listaByValues = contexto.Sensors.Select(s => s.Value).ToList();
 
-        scatter.X.AddRange(list);
-        scatter.Y.AddRange(listValues);
+        List<string> listaMediaDeVazaoPorMes = new List<string>();
 
+        int iterador = 0;
+        
+        //percorre a lista de contadores para somar os valores e fazer a media manualmente
+        //logica provisoria
+        foreach(var item in listaContadoresRegistrosPorMes)
+        {
+            double soma = 0;
+
+            for(int i = iterador; i < (iterador + item); i++)
+            {
+                soma += listaByValues[i];
+            }
+            iterador += item;
+            double valor = (soma /= item)/10;
+            listaMediaDeVazaoPorMes.Add(valor.ToString("0.0"));
+        }
+
+        scatter.X.AddRange(listaMesesDoAno);
+        scatter.Y.AddRange(listaMediaDeVazaoPorMes);
 
         //bar.X.AddRange(x2);
         //bar.Y.AddRange(y2);

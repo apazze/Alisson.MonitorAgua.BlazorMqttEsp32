@@ -9,7 +9,7 @@ namespace Alisson.MonitorAgua
     public class Data
     {
         public int Id { get; set; }
-        public int SensorId { get; set; } = 1;
+        public int SensorId { get; set; }
         public Sensor Sensor { get; set; }
         public int MessageId { get; set; }
         public DateTime TimeStamp { get; set; }

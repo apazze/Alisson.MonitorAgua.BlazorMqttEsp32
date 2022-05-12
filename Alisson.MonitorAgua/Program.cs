@@ -19,6 +19,43 @@ namespace Alisson.MonitorAgua
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\t\t\t\t\t##### MQTT BROKER RUNNING #####\n");
 
+            DateTime inicio = new DateTime(2022, 1, 10, 23, 59, 59);
+
+            var db = new AppDBContext();
+
+            //Gerador de valores
+
+            //for (int i = 0; i < 120; i++)
+            //{
+            //    double valorDaVazaoAleatorio = Math.Round(new Random().NextDouble() * 1000, 2);
+            //    Sensor sensor = new Sensor()
+            //    {
+            //        NameSensor = "Vazao",
+            //        Type = "",
+            //        Unit = "",
+            //        Value = valorDaVazaoAleatorio,
+            //    };
+
+            //    db.Add(sensor);
+            //    db.SaveChanges();
+
+            //    Data data = new Data()
+            //    {
+            //        SensorId = sensor.Id,
+            //        MessageId = i,
+            //        TimeStamp = inicio.AddDays(i),
+            //        ClientId = "",
+            //        Topic = "",
+            //        Payload = "",
+            //        QoS = "",
+            //        RetainFlag = true
+            //    };
+
+            //    db.Add(data);
+            //    db.SaveChanges();
+
+            //}
+
 
             Log.Logger = new LoggerConfiguration()
                             .MinimumLevel.Debug()

@@ -29,7 +29,7 @@ namespace Alisson.MonitorAgua.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NameSensor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Value = table.Column<double>(type: "float", nullable: false),
                     Unit = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -68,8 +68,8 @@ namespace Alisson.MonitorAgua.Migrations
                 columns: new[] { "Id", "TimeStamp", "Valor" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(8739), "150" },
-                    { 2, new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(9347), "170" }
+                    { 1, new DateTime(2022, 5, 11, 21, 59, 43, 587, DateTimeKind.Local).AddTicks(252), "150" },
+                    { 2, new DateTime(2022, 5, 11, 21, 59, 43, 587, DateTimeKind.Local).AddTicks(3410), "170" }
                 });
 
             migrationBuilder.InsertData(
@@ -77,19 +77,25 @@ namespace Alisson.MonitorAgua.Migrations
                 columns: new[] { "Id", "NameSensor", "Type", "Unit", "Value" },
                 values: new object[,]
                 {
-                    { 1, "Vazao", "Encoder", "L", "6.05" },
-                    { 2, "Vazao", "Encoder", "L", "7.3" }
+                    { 1, "Vazao", "Encoder", "L", 6.0499999999999998 },
+                    { 2, "Vazao", "Encoder", "L", 7.2999999999999998 },
+                    { 3, "Vazao", "Encoder", "L", 12.800000000000001 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 4, 18, 14, 2, 0, 680, DateTimeKind.Local).AddTicks(877), "topic seed 1" });
+                values: new object[] { 1, "clientId seed 1", 1, "payload seed 1", "qos seed 1", true, 1, new DateTime(2022, 1, 1, 23, 59, 59, 0, DateTimeKind.Unspecified), "topic seed 1" });
 
             migrationBuilder.InsertData(
                 table: "Datas",
                 columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
-                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 1, new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(3904), "topic seed 2" });
+                values: new object[] { 2, "clientId seed 2", 2, "payload seed 2", "qos seed 2", true, 2, new DateTime(2022, 1, 2, 23, 59, 59, 0, DateTimeKind.Unspecified), "topic seed 2" });
+
+            migrationBuilder.InsertData(
+                table: "Datas",
+                columns: new[] { "Id", "ClientId", "MessageId", "Payload", "QoS", "RetainFlag", "SensorId", "TimeStamp", "Topic" },
+                values: new object[] { 3, "clientId seed 3", 3, "payload seed 3", "qos seed 3", true, 3, new DateTime(2022, 1, 3, 23, 59, 59, 0, DateTimeKind.Unspecified), "topic seed 3" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Datas_SensorId",

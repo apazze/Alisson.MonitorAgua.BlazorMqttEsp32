@@ -70,7 +70,7 @@ namespace Alisson.MonitorAgua.Migrations
                             QoS = "qos seed 1",
                             RetainFlag = true,
                             SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 18, 14, 2, 0, 680, DateTimeKind.Local).AddTicks(877),
+                            TimeStamp = new DateTime(2022, 1, 1, 23, 59, 59, 0, DateTimeKind.Unspecified),
                             Topic = "topic seed 1"
                         },
                         new
@@ -81,9 +81,21 @@ namespace Alisson.MonitorAgua.Migrations
                             Payload = "payload seed 2",
                             QoS = "qos seed 2",
                             RetainFlag = true,
-                            SensorId = 1,
-                            TimeStamp = new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(3904),
+                            SensorId = 2,
+                            TimeStamp = new DateTime(2022, 1, 2, 23, 59, 59, 0, DateTimeKind.Unspecified),
                             Topic = "topic seed 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClientId = "clientId seed 3",
+                            MessageId = 3,
+                            Payload = "payload seed 3",
+                            QoS = "qos seed 3",
+                            RetainFlag = true,
+                            SensorId = 3,
+                            TimeStamp = new DateTime(2022, 1, 3, 23, 59, 59, 0, DateTimeKind.Unspecified),
+                            Topic = "topic seed 3"
                         });
                 });
 
@@ -108,13 +120,13 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 1,
-                            TimeStamp = new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(8739),
+                            TimeStamp = new DateTime(2022, 5, 11, 21, 59, 43, 587, DateTimeKind.Local).AddTicks(252),
                             Valor = "150"
                         },
                         new
                         {
                             Id = 2,
-                            TimeStamp = new DateTime(2022, 4, 18, 14, 2, 0, 682, DateTimeKind.Local).AddTicks(9347),
+                            TimeStamp = new DateTime(2022, 5, 11, 21, 59, 43, 587, DateTimeKind.Local).AddTicks(3410),
                             Valor = "170"
                         });
                 });
@@ -138,9 +150,8 @@ namespace Alisson.MonitorAgua.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Value")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -153,7 +164,7 @@ namespace Alisson.MonitorAgua.Migrations
                             NameSensor = "Vazao",
                             Type = "Encoder",
                             Unit = "L",
-                            Value = "6.05"
+                            Value = 6.0499999999999998
                         },
                         new
                         {
@@ -161,7 +172,15 @@ namespace Alisson.MonitorAgua.Migrations
                             NameSensor = "Vazao",
                             Type = "Encoder",
                             Unit = "L",
-                            Value = "7.3"
+                            Value = 7.2999999999999998
+                        },
+                        new
+                        {
+                            Id = 3,
+                            NameSensor = "Vazao",
+                            Type = "Encoder",
+                            Unit = "L",
+                            Value = 12.800000000000001
                         });
                 });
 
