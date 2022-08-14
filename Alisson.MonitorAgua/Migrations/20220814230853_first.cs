@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Alisson.MonitorAgua.Migrations
 {
-    public partial class First : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,8 +68,8 @@ namespace Alisson.MonitorAgua.Migrations
                 columns: new[] { "Id", "TimeStamp", "Valor" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 5, 11, 21, 59, 43, 587, DateTimeKind.Local).AddTicks(252), "150" },
-                    { 2, new DateTime(2022, 5, 11, 21, 59, 43, 587, DateTimeKind.Local).AddTicks(3410), "170" }
+                    { 1, new DateTime(2022, 8, 14, 20, 8, 53, 196, DateTimeKind.Local).AddTicks(1273), "150" },
+                    { 2, new DateTime(2022, 8, 14, 20, 8, 53, 197, DateTimeKind.Local).AddTicks(1264), "170" }
                 });
 
             migrationBuilder.InsertData(
