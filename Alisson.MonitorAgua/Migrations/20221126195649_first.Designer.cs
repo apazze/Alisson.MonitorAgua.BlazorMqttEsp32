@@ -10,11 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alisson.MonitorAgua.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-<<<<<<<< HEAD:Alisson.MonitorAgua/Migrations/20221126194606_first.Designer.cs
-    [Migration("20221126194606_first")]
-========
-    [Migration("20220814230853_first")]
->>>>>>>> ed96f036288b33bb7c1c0e05bbb7630b3c44bbd6:Alisson.MonitorAgua/Migrations/20220814230853_first.Designer.cs
+    [Migration("20221126195649_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,21 +122,13 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 1,
-<<<<<<<< HEAD:Alisson.MonitorAgua/Migrations/20221126194606_first.Designer.cs
-                            TimeStamp = new DateTime(2022, 11, 26, 16, 46, 5, 524, DateTimeKind.Local).AddTicks(3000),
-========
-                            TimeStamp = new DateTime(2022, 8, 14, 20, 8, 53, 196, DateTimeKind.Local).AddTicks(1273),
->>>>>>>> ed96f036288b33bb7c1c0e05bbb7630b3c44bbd6:Alisson.MonitorAgua/Migrations/20220814230853_first.Designer.cs
+                            TimeStamp = new DateTime(2022, 11, 26, 16, 56, 49, 90, DateTimeKind.Local).AddTicks(3499),
                             Valor = "150"
                         },
                         new
                         {
                             Id = 2,
-<<<<<<<< HEAD:Alisson.MonitorAgua/Migrations/20221126194606_first.Designer.cs
-                            TimeStamp = new DateTime(2022, 11, 26, 16, 46, 5, 526, DateTimeKind.Local).AddTicks(921),
-========
-                            TimeStamp = new DateTime(2022, 8, 14, 20, 8, 53, 197, DateTimeKind.Local).AddTicks(1264),
->>>>>>>> ed96f036288b33bb7c1c0e05bbb7630b3c44bbd6:Alisson.MonitorAgua/Migrations/20220814230853_first.Designer.cs
+                            TimeStamp = new DateTime(2022, 11, 26, 16, 56, 49, 91, DateTimeKind.Local).AddTicks(7232),
                             Valor = "170"
                         });
                 });

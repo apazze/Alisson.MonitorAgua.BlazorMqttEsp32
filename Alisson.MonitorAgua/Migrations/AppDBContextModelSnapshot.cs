@@ -120,13 +120,13 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 1,
-                            TimeStamp = new DateTime(2022, 8, 14, 20, 8, 53, 196, DateTimeKind.Local).AddTicks(1273),
+                            TimeStamp = new DateTime(2022, 11, 26, 16, 56, 49, 90, DateTimeKind.Local).AddTicks(3499),
                             Valor = "150"
                         },
                         new
                         {
                             Id = 2,
-                            TimeStamp = new DateTime(2022, 8, 14, 20, 8, 53, 197, DateTimeKind.Local).AddTicks(1264),
+                            TimeStamp = new DateTime(2022, 11, 26, 16, 56, 49, 91, DateTimeKind.Local).AddTicks(7232),
                             Valor = "170"
                         });
                 });
