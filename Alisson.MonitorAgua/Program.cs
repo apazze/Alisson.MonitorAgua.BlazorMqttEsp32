@@ -27,7 +27,8 @@ namespace Alisson.MonitorAgua
 
             //for (int i = 0; i < 220; i++)
             //{
-            //    double valorDaVazaoAleatorio = Math.Round(new Random().NextDouble() * 1000, 2);
+            //    Console.WriteLine(i);
+            //    double valorDaVazaoAleatorio = Math.Round(new Random().NextDouble() * 1000, 2) + 1250;
             //    Sensor sensor = new Sensor()
             //    {
             //        NameSensor = "Vazao",
@@ -53,8 +54,38 @@ namespace Alisson.MonitorAgua
 
             //    db.Add(data);
             //    db.SaveChanges();
-
             //}
+
+            //for (int x = 151; x < 220; x++)
+            //{
+            //    Console.WriteLine(x);
+            //    double valorDaVazaoAleatorio = Math.Round(new Random().NextDouble() * 1000, 2)+950;
+            //    Sensor sensor = new Sensor()
+            //    {
+            //        NameSensor = "Vazao",
+            //        Type = "",
+            //        Unit = "",
+            //        Value = valorDaVazaoAleatorio,
+            //    };
+                
+            //    db.Add(sensor);
+            //    db.SaveChanges();
+            //    Data data = new Data()
+            //    {
+            //        SensorId = sensor.Id,
+            //        MessageId = x,
+            //        TimeStamp = inicio.AddDays(x),
+            //        ClientId = "",
+            //        Topic = "",
+            //        Payload = "",
+            //        QoS = "",
+            //        RetainFlag = true
+            //    };
+
+            //    db.Add(data);
+            //    db.SaveChanges();
+            //}
+            //Console.WriteLine("FINISH");
 
 
             Log.Logger = new LoggerConfiguration()
