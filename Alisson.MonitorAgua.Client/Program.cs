@@ -77,12 +77,12 @@ namespace MQTTFirstLook.Client
                                            join s in contexto.Sensors
                                            on d.SensorId equals s.Id
                                            where d.TimeStamp.DayOfYear == DateTime.Now.DayOfYear
-                                           select s.Value).Max();
+                                           select s.Value).Sum();
 
                 decimal valorMaximoDoDiaDecimal = Convert.ToDecimal(valorMaximoDoDia, System.Globalization.CultureInfo.InvariantCulture);
                 
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"O valor máximo recebido no dia é: [ {valorMaximoDoDiaDecimal} ]");
+                Console.WriteLine($"O total consumido no dia é: [ {valorMaximoDoDiaDecimal} ]");
 
                 if (valorMaximoDoDiaDecimal > valorConfiguradoDecimal && (!avisei || valorAntigo != valorConfiguradoDecimal))
                 {

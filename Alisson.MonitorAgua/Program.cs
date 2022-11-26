@@ -25,7 +25,7 @@ namespace Alisson.MonitorAgua
 
             //Gerador de valores
 
-            //for (int i = 0; i < 120; i++)
+            //for (int i = 0; i < 220; i++)
             //{
             //    double valorDaVazaoAleatorio = Math.Round(new Random().NextDouble() * 1000, 2);
             //    Sensor sensor = new Sensor()

@@ -15,8 +15,8 @@ namespace Alisson.MonitorAgua
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MonitoramentoAgua");
-                optionsBuilder.UseSqlServer(@"Server=monitoragua.database.windows.net;Database=monitoragua;User ID=alisson.pazze;Password=Qwerty@2022;Trusted_Connection=False;Encrypt=True");
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=monitor-agua");
+            //optionsBuilder.UseSqlServer(@"Server=monitoragua.database.windows.net;Database=monitoragua;User ID=alisson.pazze;Password=Qwerty@2022;Trusted_Connection=False;Encrypt=True");
             ;
         }
 
