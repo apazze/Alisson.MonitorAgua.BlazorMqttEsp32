@@ -20,36 +20,40 @@
     };
 
     Layout layout = new Layout
-    {
-        Title = new Title
         {
-            Text = "Consumo de Água (Média diária por mês)"
-        },
-        YAxis = new List<YAxis>
-        {
-            new YAxis
+            Title = new Title
             {
-                Title = new LayoutLib.YAxisLib.Title
-                {
-                    Text = "Litros"
-                }
+                Text = "Consumo de Água (Média diária)"
             },
-            //new YAxis
-            //{
-            //    Title = new LayoutLib.YAxisLib.Title
-            //    {
-            //        Text = "Temperatura"
-            //    },
-            //    Overlaying = "y",
-            //    Side = SideEnum.Right
-            //}
-        },
-        Height = 500,
-        XAxis = new List<XAxis>
+            YAxis = new List<YAxis>
+            {
+                new YAxis
+                {
+                    Title = new LayoutLib.YAxisLib.Title
+                    {
+                        Text = "Litros"
+                    }
+                },
+                //new YAxis
+                //{
+                //    Title = new LayoutLib.YAxisLib.Title
+                //    {
+                //        Text = "Temperatura"
+                //    },
+                //    Overlaying = "y",
+                //    Side = SideEnum.Right
+                //}
+            },
+            Height = 500,
+            XAxis = new List<XAxis>
         {
             new XAxis
             {
-              AutoMargin = true
+              AutoMargin = true,
+              Title = new LayoutLib.XAxisLib.Title
+              {
+                  Text = "Meses do ano"
+              },
             }
         }
     };

@@ -68,8 +68,8 @@ namespace Alisson.MonitorAgua.Migrations
                 columns: new[] { "Id", "TimeStamp", "Valor" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 11, 26, 17, 20, 52, 45, DateTimeKind.Local).AddTicks(4269), "150" },
-                    { 2, new DateTime(2022, 11, 26, 17, 20, 52, 46, DateTimeKind.Local).AddTicks(7281), "170" }
+                    { 1, new DateTime(2022, 11, 27, 9, 41, 42, 716, DateTimeKind.Local).AddTicks(9125), "150" },
+                    { 2, new DateTime(2022, 11, 27, 9, 41, 42, 719, DateTimeKind.Local).AddTicks(2842), "170" }
                 });
 
             migrationBuilder.InsertData(

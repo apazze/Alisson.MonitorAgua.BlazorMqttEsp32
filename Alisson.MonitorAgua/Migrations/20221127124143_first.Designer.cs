@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alisson.MonitorAgua.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20221126202052_first")]
+    [Migration("20221127124143_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,13 +122,13 @@ namespace Alisson.MonitorAgua.Migrations
                         new
                         {
                             Id = 1,
-                            TimeStamp = new DateTime(2022, 11, 26, 17, 20, 52, 45, DateTimeKind.Local).AddTicks(4269),
+                            TimeStamp = new DateTime(2022, 11, 27, 9, 41, 42, 716, DateTimeKind.Local).AddTicks(9125),
                             Valor = "150"
                         },
                         new
                         {
                             Id = 2,
-                            TimeStamp = new DateTime(2022, 11, 26, 17, 20, 52, 46, DateTimeKind.Local).AddTicks(7281),
+                            TimeStamp = new DateTime(2022, 11, 27, 9, 41, 42, 719, DateTimeKind.Local).AddTicks(2842),
                             Valor = "170"
                         });
                 });
