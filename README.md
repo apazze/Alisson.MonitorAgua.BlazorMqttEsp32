@@ -35,3 +35,27 @@ https://USUARIO:TOKEN@URL.git
 
 Exemplo:
 https://apazze:TOKEN@github.com/apazze/JavaWiki.git
+
+
+20221127
+
+Limpar DB, excluir DB no SQL Server Object explorer e a pasta Migrations do MonitorAgua
+Definir o monitorAgua como projeto de inicialização e conferir na checkbox do console do gerenciador de pacotes
+Executar no console do gerenciador de pacotes
+Add-Migration first 
+Update-Database
+
+QQ coisa recompilar solução
+
+Criar hotspot movel e ver ip no cmd (configurar na esp)
+
+No VS seleciona a checkbox com o projeto e iniciar sem depurar (play sem preenchimento)
+
+1 MonitorAgua - Broker
+2 Esp
+3 Client
+4 Web
+
+Na web esta sendo exibido a media mensal e nao o total consumido no dia
+
+Conta quantos registros que tem daquele mes, soma os registros de litros e divide pelo contador
